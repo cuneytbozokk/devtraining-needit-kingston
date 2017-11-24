@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Request ID" max_length="40" name="number" read_only="true" type="string"/>
+        <element label="Acil !" max_length="40" name="u_boolean_5" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="requested" label="State" max_length="40" name="u_choice_1" type="string">
+            <choice>
+                <element label="Requested" sequence="0" value="requested"/>
+                <element label="Awaiting Approval" sequence="1" value="awaiting_approval"/>
+                <element label="Approved" sequence="2" value="Approved"/>
+                <element label="Awaiting Feedback" sequence="3" value="awaiting_feedback"/>
+                <element label="Closed Complete" sequence="4" value="closed complete"/>
+                <element label="Withdrawn" sequence="5" value="withdrawn"/>
+            </choice>
+        </element>
+        <element label="New Due Date" max_length="40" name="u_due_date_4" type="due_date"/>
+        <element label="When needed" mandatory="true" max_length="40" name="u_glide_date_time_5" type="glide_date_time"/>
+        <element label="How many?" max_length="40" name="u_integer_2" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="1 - low" label="Priority" max_length="40" name="u_priority_level" type="string">
+            <choice>
+                <element label="1 - Low" sequence="0" value="1 - low"/>
+                <element label="2 - Medium" sequence="1" value="2 - medium"/>
+                <element label="3 - High" sequence="2" value="3 - high"/>
+            </choice>
+        </element>
+        <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="cmdb_ci_appl_dot_net" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="servicenow" label="Request Type" mandatory="true" max_length="40" name="u_request_type" type="string">
+            <choice>
+                <element label="Human Resources" sequence="0" value="human resources"/>
+                <element label="Facilities" sequence="1" value="facilities"/>
+                <element label="Legal" sequence="2" value="legal"/>
+                <element label="ServiceNow" sequence="3" value="servicenow"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Short Description" max_length="100" name="u_short_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="What do you need" max_length="100" name="u_string_1" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Note" max_length="200" name="u_string_7" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="servicenow" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
+            <choice>
+                <element label="HR" sequence="0" value="hr"/>
+                <element label="Facilities" sequence="1" value="facilities"/>
+                <element label="Legal" sequence="2" value="legal"/>
+                <element label="ServiceNow" sequence="3" value="servicenow"/>
+                <element label="Account" sequence="4" value="account"/>
+                <element label="IT Help" sequence="5" value="it_help"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="u_requested_for"/>
+        </index>
+    </element>
+</database>
